@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=void\ init()
-comment1.params=g
-comment1.target=void\ paint(Graphics)
-comment2.params=event\ object
-comment2.target=boolean\ action(Event,\ Object)
-numComments=3
