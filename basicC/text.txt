@@ -1,4 +1,0 @@
-Sr no.	 Roll no GPA		 Batch
-1	 56	 9.000000	 e
-2	 8	 9.000000	 it
-3	 87	 9.000000	 m
