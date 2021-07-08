@@ -1,0 +1,52 @@
+import java.io.*;
+class Even implements Runnable
+{
+    Even()
+    {
+        super();
+    }
+     public void run()
+        {  long  f=1;
+            for(long i=2;i<=30;i+=2)
+            {
+              System.out.println("EVEN NUMBERS:" +i);
+            }
+         }   
+}  
+
+ 
+class Odd implements Runnable
+{
+    Odd()
+    {
+        super();
+    }
+     public void run()
+        {  long  f=1;
+            for(long i=3;i<=30;i+=2)
+            {
+              System.out.println("ODD NUMBERS:" +i);
+            }
+         }   
+} 
+ 
+public class MyEVENOdd {
+ 
+    public static void main(String[] args) throws IOException
+    {
+        Thread ct=Thread.currentThread();
+        System.out.println("Main thread name : "+ct.getName()); 
+        Even fa=new Even();
+        Odd f=new Odd();
+        
+        
+        Thread Even=new Thread(fa,"EVEN NUMBER");
+        Even.start();   
+        System.out.println("Thread "+ Even.getName() +" started."); 
+        Thread Odd=new Thread(f,"ODD NUMBER");
+            Odd.start();
+        System.out.println("Thread "+ Odd.getName() + " started.");
+    
+
+    }
+}

@@ -1,0 +1,19 @@
+
+import java.util.*;
+class Q37Exception 
+{
+    public static void main(String args[])
+    {int a,b;
+        try{Scanner in=new Scanner(System.in);
+        System.out.println("Enter a two nos.");
+        a=in.nextInt();
+        b=in.nextInt();
+        if(a+b>99)
+        throw new Exception("Sum is greater than 99");
+              System.out.println("Sum="+(a+b));
+    }
+        catch(Exception e)
+        {}
+
+
+    }}

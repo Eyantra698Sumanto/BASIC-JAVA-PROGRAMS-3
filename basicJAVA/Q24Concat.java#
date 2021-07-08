@@ -1,0 +1,17 @@
+import java.io.*;
+class Q24Concat
+{
+    public static void main(String args[])throws IOException
+    { Q14Words ob= new Q14Words();
+        String s2,s1;
+        BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter String1");
+        s1=in.readLine();
+        System.out.println("Enter String2");
+        s2=in.readLine();
+       System.out.println("conacatenated string="+ob.concat(s1,s2));
+    }
+    String concat(String s1,String s2)
+    {   String s3=s1+s2;
+        return s3;
+}}

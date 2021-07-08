@@ -1,0 +1,6 @@
+import java.util.Scanner;
+abstract class Area
+{
+    float length,breadth;
+}
+    

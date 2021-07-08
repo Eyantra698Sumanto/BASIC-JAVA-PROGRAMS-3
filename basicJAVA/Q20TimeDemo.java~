@@ -1,0 +1,57 @@
+import java.util.Scanner;
+class Q20TimeDemo
+{
+	public static void main(String args[])
+	{
+		 Time n1=new   Time();
+		 Time n2=new  Time ();
+		  Time res=new   Time(0);
+		res=n1.add(n2);
+		System.out.println("Addition:"+res.hr+"hrs and "+res.min+"min"+res.sec+"sec");
+	}
+}
+class  Time
+{
+	int hr,min,sec;
+	Time()
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the time in hrs, min and sec");
+		hr=s.nextInt();
+		min=s.nextInt();
+		sec=s.nextInt();
+	}
+	Time(int a)
+	{	hr=min=sec=a;
+	}
+	Time add(Time c)
+	{
+		Time temp=new Time(0);
+		temp.hr=hr+c.hr;
+		temp.min=min+c.min;
+		temp.sec=sec+c.sec;
+		temp=incre(temp);
+		return temp;
+	}
+	/*Time sub(Time c)
+	{
+		Time temp=new  Time(0);
+		temp.m=m-c.m;
+		temp.cm=cm-c.cm;
+		temp=incre(temp);
+		return temp;
+	}*/
+ Time incre(Time temp)
+	{
+		if(temp.sec>60)
+		{	temp.min+=temp.min/60;
+			temp.sec=temp.sec%60;
+		}
+		
+		if(temp.min>60)
+		{	temp.hr+=temp.min/60;
+			temp.min=temp.min%60;
+		}
+	return temp;
+}
+}

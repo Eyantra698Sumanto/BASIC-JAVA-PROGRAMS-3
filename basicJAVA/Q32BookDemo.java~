@@ -1,0 +1,36 @@
+ 
+import java.util.*;
+class Q32BookDemo
+{
+    public static void main(String args[])
+    { Student s1=new Student();
+        Student s[]=new Student[5];
+        for(int i=0;i<5;i++)
+       s[i]=new Student();
+      System.out.println("Regno name Subject1 Subject2 Subject3 Subject4 Subject5 Total");
+      for(int i=0;i<5;i++)
+       s[i].display();
+    }}
+class Book
+{
+    String name,author,name;
+    float price;
+    int year;
+    Book()
+    {
+         Scanner s=new Scanner(System.in);
+        System.out.println("Enter Book name");
+        name=s.nextLine();
+        System.out.println("Enter Author");
+        author=s.nextLine();
+        System.out.println("Enter Price");
+        price=s.nextFloat();
+        System.out.println("Enter Author");
+        year=s.nextInt();
+        
+    }
+    void display()
+    {   
+        System.out.println(name+" "+author+"  "+price+"  "+year);
+    }  
+}

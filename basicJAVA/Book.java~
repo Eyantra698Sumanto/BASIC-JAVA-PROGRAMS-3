@@ -1,0 +1,25 @@
+package Book;
+import java.util.Scanner;
+class Book
+{
+    String name,author,name;
+    float price;
+    int year;
+    Book()
+    {
+         Scanner s=new Scanner(System.in);
+        System.out.println("Enter Book name");
+        name=s.nextLine();
+        System.out.println("Enter Author");
+        author=s.nextLine();
+        System.out.println("Enter Price");
+        price=s.nextFloat();
+        System.out.println("Enter Author");
+        year=s.nextInt();
+        
+    }
+    void display()
+    {   
+        System.out.println(name+" "+author+"  "+price+"  "+year);
+    }  
+}
