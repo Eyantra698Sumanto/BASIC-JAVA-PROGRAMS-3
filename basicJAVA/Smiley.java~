@@ -1,9 +1,0 @@
-import java.awt.*;
-import java.applet.*;
-public class Smiley extends Applet
-{
-    public void paint(Graphics g)
-    {
-        g.drawCircle();
-    }
-}

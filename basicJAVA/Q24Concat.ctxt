@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.params=args
-comment0.target=void\ main([)
-comment1.params=s1\ s2
-comment1.target=String\ concat(String,\ String)
-numComments=2

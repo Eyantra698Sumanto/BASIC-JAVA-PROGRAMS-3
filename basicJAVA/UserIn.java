@@ -15,7 +15,7 @@ public class UserIn extends Applet
 	public void paint(Graphics g)
 	{
 		int x=0,y=0,z=0;
-		String s1,s2,s;
+		String s1,s2,s,s3;
 		g.drawString("Input a number in each box",10,50);
 		try
 		{
@@ -28,14 +28,14 @@ public class UserIn extends Applet
 		catch(Exception ex){}
 		z=x+y;
 		s=String.valueOf(z);
+		s3=String.valueOf(x*y);
 		g.drawString("THE SUM IS:",10,75);
+		//g.drawString("THE PRODUCT IS:",10,75);
 		g.drawString(s,100,75);
+		g.drawString(s3,100,75);
 	}
 	public boolean action(Event event,Object object)
 	{repaint();
 		return true;
 	}
 }
-	
-
-

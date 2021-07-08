@@ -1,0 +1,44 @@
+
+For this to work, you need 1) a way to pass the number into the new thread, 2) to start the thread, 3) to wait for the thread to finish, and 4) a way to get the result back from the thread.
+You can pass in the number through the constructor. You can have a public data member called "answer" to contain the result of the computation. Starting the thread can be done with the start() method, and the join() method waits for the thread to complete.
+The following example demonstrates this. That should be a good starting point; from here you can abstract away some of the messiness to get a better API as desired.
+public class Fib extends Thread
+{
+    private int x;
+    public int answer;
+
+    public Fib(int x) {
+        this.x = x;
+    }
+
+    public void run() {
+        if( x <= 2 )
+            answer = 1;
+        else {
+            try {
+                Fib f1 = new Fib(x-1);
+                Fib f2 = new Fib(x-2);
+                f1.start();
+                f2.start();
+                f1.join();
+                f2.join();
+                answer = f1.answer + f2.answer;
+            }
+            catch(InterruptedException ex) { }
+        }
+    }
+
+    public static void main(String[] args)
+        throws Exception
+    {
+        try {
+            Fib f = new Fib( Integer.parseInt(args[0]) );
+            f.start();
+            f.join();
+            System.out.println(f.answer);
+        }
+        catch(Exception e) {
+            System.out.println("usage: java Fib NUMBER");
+        }
+    }
+}

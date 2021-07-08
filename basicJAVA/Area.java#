@@ -1,64 +1,14 @@
 import java.util.Scanner;
-abstract class Area
+class circle
 {
-    float length,breadth,area;
-    float compute(){}
-    void display(){}
-}
-class Rectangle implements Area
-{
-    Rectangle()
-    {   Scanner s=new Scanner(System.in);
-        System.out.println("Enter length");
-        length=s.nextFloat();
-        System.out.println("Enter breadth");
-        breadth=s.nextFloat();
-    }
-    float compute()
-    {
-        area=length*breadth;
-        return area;
-    }
-    void display()
-    {
-        System.out.println("Area of rectangle="+area);
-    }
-}
-class Square implements Area
-{
-    Square()
-    {   Scanner s=new Scanner(System.in);
-        System.out.println("Enter length");
-        length=s.nextFloat();
-    }
-    float compute()
-    {
-        area=length*length;
-        return area;
-    }
-    void display()
-    {
-        System.out.println("Area of square="+area);
-    }
-}
-public class Q16Abstractdemo
-{
-    public static void main()
-    {
-                int ch;
-        System.out.println("Enter 1 for rectangle and 2 for square");
-       ch=s.nextInt();
-        switch(ch)
-        {
-            case 1:
-            Rectangle ob=new Rectangle();
-            ob.display();
-            break;
-            case 2:
-            Square ob1=new Square();
-            ob1.display();
-            break;
-            default:
-            System.out.println("Wrong Choice");
-        }
-    }
+	public static void main(String args[])
+	{
+		int a,c,r;
+		System.out.println("Enter the radius");
+		Scanner sc=new Scanner(System.in);
+		r=sc.nextInt();
+		a=3.141*r*r;
+		c=2*3.141*r;
+		System.out.println("Area of the circle="+a);
+		System.out.println("Circumference of the circle="+c);
+}}}

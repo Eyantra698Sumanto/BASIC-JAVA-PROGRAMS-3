@@ -1,0 +1,77 @@
+import java.io.*;
+class Fact implements Runnable
+{
+	long n;
+	Fact()throws IOException
+	{
+		super();
+		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the value of n for factorial");
+		n=Integer.parseInt(in.readLine());
+	}
+   	 public void run()
+    	{  long  f=1;
+    		for(long i=1;i<=5;i++)
+    		{f*=i;
+    		  }System.out.println("Factorial:" +f);
+
+    		}	
+    	}  
+
+ 
+class Fib implements Runnable
+{
+	long a,b,c,n,n1;
+	Fib()throws IOException
+	{
+		a=c=n=0;
+		b=1;
+			BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the value of n for fibonacci");
+		n1=Integer.parseInt(in.readLine());	
+	}
+	public void run()
+	{
+		while(n++<n1)
+		{
+			System.out.println(n+"th" +" Fib no: = "+a);
+			c=a+b;
+			a=b;
+			b=c;
+			try
+			{
+				if(n==50)
+				{
+System.out.println("Thread fibonacci is put into sleep.");
+					Thread.sleep(500);
+				}
+ 
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Error : " + e);
+			}
+		}	
+	}
+}
+ 
+public class MyPriFib {
+ 
+	public static void main(String[] args) throws IOException
+	{
+		Thread ct=Thread.currentThread();
+		System.out.println("Main thread name : "+ct.getName());	
+		Fact p=new Fact();
+		Fib f=new Fib();
+		
+		
+		Thread fact=new Thread(p,"Factorial");
+		fact.start();	
+		System.out.println("Thread "+ fact.getName() +" started.");	
+		Thread fib=new Thread(f,"fibonacci");
+			fib.start();
+		System.out.println("Thread "+ fib.getName() + " started.");
+	
+
+	}
+}

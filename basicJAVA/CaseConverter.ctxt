@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=void\ init()
+comment0.text=\nCalled\ by\ the\ browser\ or\ applet\ viewer\ to\ inform\ this\ JApplet\ that\ it\nhas\ been\ loaded\ into\ the\ system.\ It\ is\ always\ called\ before\ the\ first\ \ntime\ that\ the\ start\ method\ is\ called.\n\n
+comment1.target=String\ getAppletInfo()
+comment1.text=\nReturns\ information\ about\ this\ applet.\ \nAn\ applet\ should\ override\ this\ method\ to\ return\ a\ String\ containing\ \ninformation\ about\ the\ author,\ version,\ and\ copyright\ of\ the\ JApplet.\n\n@return\ a\ String\ representation\ of\ information\ about\ this\ JApplet\n\n
+comment2.params=evt
+comment2.target=void\ actionPerformed(ActionEvent)
+comment2.text=\nActionListener\ Interface\ method.\nCalled\ when\ action\ events\ occur\ with\ registered\ components\ that\ncan\ fire\ action\ events.\n@param\ \ ae\ \ \ the\ ActionEvent\ object\ created\ by\ the\ event\n\n
+numComments=3

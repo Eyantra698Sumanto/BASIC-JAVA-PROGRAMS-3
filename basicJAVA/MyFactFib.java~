@@ -43,7 +43,7 @@ class Fib implements Runnable
 				if(n==50)
 				{
 System.out.println("Thread fibonacci is put into sleep.");
-					Thread.sleep(5000);
+					Thread.sleep(500);
 				}
  
 			}
@@ -61,11 +61,11 @@ public class MyFactFib {
 	{
 		Thread ct=Thread.currentThread();
 		System.out.println("Main thread name : "+ct.getName());	
-		Fact fa=new Fact();
+		Fact p=new Fact();
 		Fib f=new Fib();
 		
 		
-		Thread fact=new Thread(fa,"Factorial");
+		Thread fact=new Thread(p,"Factorial");
 		fact.start();	
 		System.out.println("Thread "+ fact.getName() +" started.");	
 		Thread fib=new Thread(f,"fibonacci");

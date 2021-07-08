@@ -1,0 +1,198 @@
+import java.awt.*;
+import java.util.*;
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+ <APPLET CODE="Animation.JAVA" WIDTH=400 HEIGHT=300>
+ </APPLET>
+*/
+//The basic applet class.The applet shows 4 cars crossing each other at a square.
+ class Animation extends Applet implements Runnable 
+{
+ Thread t;
+ //4 variables used to vary the car's positions.
+ int x1=0,x2=380,y1=50,y2=250;
+ public void start()
+ {
+  if(t==null)
+  {
+   t=new Thread(this,"New Thread");//New side Thread created on start of applet.
+   t.start();
+  }
+ }
+ public void stop()
+ {
+  if(t!=null)
+  {
+   t=null;//On stop of applet the created thread is destroyed.
+  }
+ }
+ //Implementation of method run() of Runnable interface.
+ public void run()
+ {
+  Thread t1=Thread.currentThread();
+  while(t==t1)
+  {
+   repaint();
+   try
+   {
+    Thread.sleep(100);
+   }
+   catch(Exception e)
+   {   }
+  }
+ }
+
+ public void paint(Graphics g)
+ {
+  setBackground(Color.BLACK);
+  g.setColor(Color.BLACK);
+  x1=(x1+16)%400;
+  x2=x2-16;
+  y1=(y1+12)%300;
+  y2=y2-12;
+  if(y2<0)
+   y2=288;
+  if(x2<0)
+   x2=384;
+  //Draw the roads using 2 filled rectangles using black color.
+  g.fillRect(0,130,400,40);
+  g.fillRect(180,0,40,305);
+  //Draw the white colored lines.
+  g.setColor(Color.white);
+  for(int i=0;i<500;i++)
+  {int y=(int)(20*Math.sin(i));
+    g.drawLine(i*10,y+100,i*10+1,y+101);
+  }
+  for(int j=0;j<15;j++)
+  {
+   if(j!=7 && j!=8)
+    g.drawLine(200,j*20,200,j*20+10);
+  }
+  //Draw 4 colored cars using filled round rectangles.
+  g.setColor(Color.yellow);
+  
+  g.fillRoundRect(x2,152,20,8,2,2);
+  g.fillRoundRect(x1,140,20,8,2,2);
+  g.fillRoundRect(190,y1,8,20,2,2);
+  g.fillRoundRect(202,y2,8,20,2,2);
+ }
+}
+
+/**
+ * Class CaseConverter - A simple applet that takes input from a text field 
+ * and converts to upper or lower case in response to user button selection. 
+ * Works well with a width of 300 and height of 120.
+ *  
+ * Aug 2004: Updated from Applet to JApplet (mik)
+ *
+ * @author Bruce Quig 
+ * @author Michael Kolling
+ * 
+ * @version 2004-08-04
+ */
+public class cal extends JApplet
+     implements ActionListener
+{
+    private JTextField inputField,inputField1,resultField;
+    private final String PLUS = "+";
+    private final String MINUS = "-";
+    private final String CLEAR = "C";
+
+     /**
+     * Called by the browser or applet viewer to inform this JApplet that it
+     * has been loaded into the system. It is always called before the first 
+     * time that the start method is called.
+     */
+    public void init()
+    {
+        // GUI elements are added to the applet's content pane, so get it for us.
+        Container contentPane = getContentPane();
+        
+        
+        // set a layout with some spacing
+        contentPane.setLayout(new BorderLayout(12,12));
+        
+        // add the title label
+        JLabel title = new JLabel("SCIENTIFIC CALCULATOR");
+        contentPane.add(title, BorderLayout.NORTH);
+       
+        // create the center part with prompt and text field and add it
+        JPanel centerPanel = new JPanel();
+        JPanel centerPanel1 = new JPanel();
+        JLabel prompt = new JLabel("Enter INPUTS:");
+        JLabel prompt1 = new JLabel("RESULT:");
+        centerPanel.add(prompt);
+        inputField = new JTextField(16);
+        inputField1= new JTextField(16);
+        centerPanel.add(inputField);
+           centerPanel.add(inputField1);
+           centerPanel.add(prompt1);
+            resultField= new JTextField(16);
+            
+        centerPanel.add(resultField);
+        contentPane.add(centerPanel, BorderLayout.CENTER);
+        // make a panel for the buttons
+        JPanel buttonPanel = new JPanel();
+        
+        // add the buttons to the button panel
+        JButton PLUS = new JButton("+");
+        PLUS.addActionListener(this);
+        buttonPanel.add(PLUS);
+        
+        JButton MINUS = new JButton("-");
+        MINUS.addActionListener(this); 
+        buttonPanel.add(MINUS);
+        
+        JButton clear = new JButton(CLEAR);
+        clear.addActionListener(this);
+        buttonPanel.add(clear);
+        
+        // add the buttons panel to the content pane
+        contentPane.add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    /**
+     * Returns information about this applet. 
+     * An applet should override this method to return a String containing 
+     * information about the author, version, and copyright of the JApplet.
+     *
+     * @return a String representation of information about this JApplet
+     */
+    public String getAppletInfo()
+    {
+        return "Title: Case Converter  \n" +
+               "Author: Bruce Quig  \n" +
+               "A simple applet that converts text to upper or lower case. ";
+    }
+
+    /**
+     * ActionListener Interface method.
+     * Called when action events occur with registered components that
+     * can fire action events.
+     * @param  ae   the ActionEvent object created by the event
+     */
+    public void actionPerformed(ActionEvent evt)
+    {float a,b;
+        String c="", command = evt.getActionCommand();
+        // if clear button pressed
+        if(CLEAR.equals(command))
+            inputField.setText("");
+        // uppercase button pressed
+        else if(PLUS.equals(command))
+          { a= Float.parseFloat(inputField1.getText());
+              b= Float.parseFloat(inputField.getText());
+        // lowercase button pressed
+            resultField.setText(c.valueOf(a+b));
+    }
+     else if(MINUS.equals(command))
+          { a= Float.parseFloat(inputField1.getText());
+              b= Float.parseFloat(inputField.getText());
+        // lowercase button pressed
+            resultField.setText(c.valueOf(a-b));
+    }
+}}
+
+

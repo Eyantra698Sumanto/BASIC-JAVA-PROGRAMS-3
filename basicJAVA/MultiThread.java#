@@ -1,0 +1,53 @@
+import java.lang.*;
+class FirstThread extends Thread
+{
+    public void run(int n)
+    {   
+     int f=1;for(int i=1; i<n; i++)
+        {   
+            try
+            {
+                 f*=i;
+            }
+            catch(Exception x)
+            { }
+        }        System.out.println("Factorial="+f);
+
+    }
+}
+class Fibo extends Thread
+{private int x;
+public int answer;
+ public Fibo(int x)
+{
+this.x=x;
+}
+        public void run()
+{
+if (x<=2)
+answer=1;
+else
+{
+try
+{
+        Fibo f1=new Fibo(x-1);
+        Fibo f2=new Fibo(x-2);
+        f1.start();
+        f2.start();
+        f1.join();
+        f2.join();
+        answer=f1.answer+f2.answer;
+}
+ catch(Exception e){}   
+}}}
+
+public class MultiThread
+{
+    public static void main(String arg[])
+    {
+        FirstThread a1 = new FirstThread();
+        Fibo b1 = new Fibo(0);
+        a1.start();
+        b1.start();
+    }
+}

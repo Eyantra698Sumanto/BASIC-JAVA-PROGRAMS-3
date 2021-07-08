@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ghj()
+comment1.target=void\ initializebuttons()
+comment2.target=void\ resetButtons()
+comment3.params=args
+comment3.target=void\ main(String[])
+numComments=4
